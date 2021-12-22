@@ -13,8 +13,30 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
     name:'DiscCollection',
+
+    data:function(){
+        return{
+            AlbumList:[],
+
+        };
+    },
+
+      created:function(){
+        axios.get('https://flynn.boolean.careers/exercises/api/array/music')
+        .then((response) => {
+            // console.log(response.data.response);
+            this.AlbumList = response.data.response;
+
+        });
+
+    },
+
+  
+
+
 }
 </script>
 
@@ -22,8 +44,6 @@ export default {
 <style lang="scss" scoped>
 @import '../style/variables.scss';
 
-.banner{
-    width: 50px;
-}
+
 
 </style>
