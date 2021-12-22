@@ -1,21 +1,21 @@
 <template>
     <div class="main-app">
         <div class="container">
-          <div class="row">
-              <div class="single_card">
-                  <div class="banner">
-                      <img src="https://www.onstageweb.com/wp-content/uploads/2018/09/bon-jovi-new-jersey.jpg" alt="">
-                  </div>
-              </div>
-          </div>
+            <SingleAlbum />
         </div>
       </div>
 </template>
 
 <script>
+
+import SingleAlbum from "./SingleAlbum.vue";
+
 import axios from 'axios';
 export default {
     name:'DiscCollection',
+    components:{
+        SingleAlbum,
+    },
 
     data:function(){
         return{
