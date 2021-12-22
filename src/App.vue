@@ -1,9 +1,12 @@
 <template>
   <div id="app">
-    <Header />
-    <main>
-      <DiscCollection />
-    </main>
+      <div class="app_wrapper">
+        <Header />
+      <main>
+        <DiscCollection />
+      </main>
+    </div>
+    
     
   </div>
 </template>
@@ -28,11 +31,13 @@ export default {
 @import './style/variables';
 @import './style/general';
 
-.main-app{
-  background-color:$brand-main-color;
-  // test
-  height: 500px;
+.app_wrapper{
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-color: $brand-main-color;
 }
+
 
 
 </style>

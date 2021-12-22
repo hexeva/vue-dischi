@@ -1,25 +1,28 @@
 <template>
     <div class="main-card">
-        <div class="row">
+        
             <!-- SINGLE CARD -->
               <div class="single_card">
                   <div class="my_banner">
-                      <img src="https://www.onstageweb.com/wp-content/uploads/2018/09/bon-jovi-new-jersey.jpg" alt="">
+                      <img :src="albumObject.poster" :alt="albumObject.title">
 
                       <div class="banner_title">
-                          <h2>TITOLO</h2>
-                          <h3>author</h3>
-                          <h3>year</h3>
+                          <h2>{{albumObject.title}}</h2>
+                          <h3>{{albumObject.author}}</h3>
+                          <h4>{{albumObject.year}}</h4>
                       </div>
                   </div>
               </div>
-          </div>
+          
     </div>
 </template>
 
 <script>
 export default {
     name:'SingleAlbum',
+    props:{
+        albumObject:Object,
+    }
 
 }
 </script>
@@ -28,9 +31,9 @@ export default {
 @import '../style/variables.scss';
 
 .single_card{
-    width: calc(100% / 6);
-    margin:30px;
-    min-height: 350px;
+    
+    margin:12px;
+    min-height: 400px;
     
     background-color: $brand-primary-color;
 
@@ -49,6 +52,7 @@ export default {
         h3{
             margin:unset;
         }
+
     }
 }
 

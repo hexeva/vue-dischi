@@ -1,7 +1,14 @@
 <template>
     <div class="main-app">
         <div class="container">
-            <SingleAlbum />
+            <div v-if="AlbumList.length > 0" class="row row-cols-5">
+                <SingleAlbum v-for="(album,index) in AlbumList" :key="index" :albumObject="album"/>
+                
+            </div>
+            
+                <Loader v-else />
+            
+            
         </div>
       </div>
 </template>
@@ -9,12 +16,15 @@
 <script>
 
 import SingleAlbum from "./SingleAlbum.vue";
+import Loader from "./Loader.vue";
+
 
 import axios from 'axios';
 export default {
     name:'DiscCollection',
     components:{
         SingleAlbum,
+        Loader,
     },
 
     data:function(){
@@ -43,6 +53,13 @@ export default {
 
 <style lang="scss" scoped>
 @import '../style/variables.scss';
+
+.main-app{
+  background-color:$brand-main-color;
+  padding: 40px;
+  
+  
+}
 
 
 
