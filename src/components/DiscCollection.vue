@@ -4,7 +4,7 @@
             <SelectBar @genreSelection="chosedGenre" />
 
             <div v-if="AlbumList.length > 0" class="row row-cols-5">
-                <SingleAlbum v-for="(album,index) in filteredAlbum()" :key="index" :albumObject="album"/>
+                <SingleAlbum v-for="(album,index) in filteredAlbum" :key="index" :albumObject="album"/>
                 
             </div>
             
@@ -46,12 +46,16 @@ export default {
         chosedGenre:function(kind){
 
             this.searchedGenre = kind;
-           
             
-            
-        },
+        }
 
-        filteredAlbum:function(){
+       
+
+    },
+    // end methods
+
+    computed:{
+         filteredAlbum:function(){
 
             if(this.searchedGenre === 'Choose'){
                 return this.AlbumList;
@@ -64,9 +68,7 @@ export default {
 
         }
         // end filteredAlbum
-
     },
-    // end methods
 
       created:function(){
         axios.get('https://flynn.boolean.careers/exercises/api/array/music')
