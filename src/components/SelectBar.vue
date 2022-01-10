@@ -1,7 +1,7 @@
 <template>
 
     <div class="select_bar">
-        <select @change="$emit('genreSelection',SelectValue)" v-model="SelectValue" class="form-select " name="" id="">
+        <select @change="ChooseDone" v-model="SelectValue" class="form-select " name="" id="">
             <option value="Choose" selected>Choose</option>
 
             <option value="Rock">Rock</option>
@@ -28,6 +28,19 @@ export default {
         };
     },
     // end data
+
+    methods:{
+        ChooseDone:function(){
+            this.$emit('genreSelection',this.SelectValue);
+
+        }
+    },
+
+    created:function(){
+        this.prova
+    }
+        
+    
     
 
 
