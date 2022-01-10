@@ -1,6 +1,8 @@
 <template>
     <div class="main-app">
         <div class="container">
+            <SelectBar />
+            
             <div v-if="AlbumList.length > 0" class="row row-cols-5">
                 <SingleAlbum v-for="(album,index) in AlbumList" :key="index" :albumObject="album"/>
                 
@@ -17,6 +19,8 @@
 
 import SingleAlbum from "./SingleAlbum.vue";
 import Loader from "./Loader.vue";
+import SelectBar from "./SelectBar.vue";
+
 
 
 import axios from 'axios';
@@ -25,6 +29,7 @@ export default {
     components:{
         SingleAlbum,
         Loader,
+        SelectBar,
     },
 
     data:function(){
