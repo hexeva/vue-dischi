@@ -4,7 +4,7 @@
             <SelectBar @genreSelection="chosedGenre" />
 
             <div v-if="AlbumList.length > 0" class="row row-cols-5">
-                <SingleAlbum v-for="(album,index) in AlbumList" :key="index" :albumObject="album"/>
+                <SingleAlbum v-for="(album,index) in filteredAlbum()" :key="index" :albumObject="album"/>
                 
             </div>
             
@@ -47,6 +47,15 @@ export default {
 
             this.searchedGenre = genre;
             
+        },
+
+        filteredAlbum:function(){
+
+            
+            if(this.searchedGenre === 'Choose'){
+                return this.AlbumList;
+            };
+        
         }
 
     },
