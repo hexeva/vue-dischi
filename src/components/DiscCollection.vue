@@ -35,7 +35,7 @@ export default {
     data:function(){
         return{
             AlbumList:[],
-            searchedGenre:'',
+            searchedGenre:'Choose',
 
         };
     },
@@ -43,10 +43,10 @@ export default {
 
     methods:{
 
-        chosedGenre:function(genre){
+        chosedGenre:function(kind){
 
-            this.searchedGenre = genre;
-            console.log(this.searchedGenre);
+            this.searchedGenre = kind;
+           
             
             
         },
@@ -56,7 +56,14 @@ export default {
             if(this.searchedGenre === 'Choose'){
                 return this.AlbumList;
             };
+
+            const filteredArray = this.AlbumList.filter((element) => {
+                return element.genre.includes(this.searchedGenre)
+            });
+            return filteredArray;
+
         }
+        // end filteredAlbum
 
     },
     // end methods

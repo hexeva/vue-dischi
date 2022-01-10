@@ -2,7 +2,7 @@
 
     <div class="select_bar">
         <select @change="$emit('genreSelection',SelectValue)" v-model="SelectValue" class="form-select " name="" id="">
-            <option  selected>Choose</option>
+            <option value="Choose" selected>Choose</option>
 
             <option value="Rock">Rock</option>
             <option value="Pop">Pop</option>
@@ -28,6 +28,8 @@ export default {
         };
     },
     // end data
+    
+
 
    
 }
