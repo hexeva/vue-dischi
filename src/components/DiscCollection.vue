@@ -46,19 +46,20 @@ export default {
         chosedGenre:function(genre){
 
             this.searchedGenre = genre;
+            console.log(this.searchedGenre);
+            
             
         },
 
         filteredAlbum:function(){
 
-            
             if(this.searchedGenre === 'Choose'){
                 return this.AlbumList;
             };
-        
         }
 
     },
+    // end methods
 
       created:function(){
         axios.get('https://flynn.boolean.careers/exercises/api/array/music')
