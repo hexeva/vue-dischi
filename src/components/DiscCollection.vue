@@ -1,8 +1,8 @@
 <template>
     <div class="main-app">
         <div class="container">
-            <SelectBar />
-            
+            <SelectBar @genreSelection="chosedGenre" />
+
             <div v-if="AlbumList.length > 0" class="row row-cols-5">
                 <SingleAlbum v-for="(album,index) in AlbumList" :key="index" :albumObject="album"/>
                 
@@ -35,8 +35,20 @@ export default {
     data:function(){
         return{
             AlbumList:[],
+            searchedGenre:'',
 
         };
+    },
+    // end data
+
+    methods:{
+
+        chosedGenre:function(genre){
+
+            this.searchedGenre = genre;
+            
+        }
+
     },
 
       created:function(){

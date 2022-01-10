@@ -1,7 +1,7 @@
 <template>
 
     <div class="select_bar">
-        <select v-model="SelectValue" class="form-select " name="" id="">
+        <select @change="$emit('genreSelection',SelectValue)" v-model="SelectValue" class="form-select " name="" id="">
             <option selected>Choose</option>
 
             <option value="Rock">Rock</option>
@@ -23,9 +23,13 @@ export default {
     data:function(){
         return{
             SelectValue:'',
+            
 
         };
-    }
+    },
+    // end data
+
+   
 }
 </script>
 
